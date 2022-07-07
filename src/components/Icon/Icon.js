@@ -14,7 +14,6 @@ import Menu from './svg/menu.svg';
 import Pause from './svg/pause.svg';
 import Play from './svg/play.svg';
 import Send from './svg/send.svg';
-import Twitter from './svg/twitter.svg';
 
 export const icons = {
   arrowLeft: ArrowLeft,
@@ -31,7 +30,6 @@ export const icons = {
   pause: Pause,
   play: Play,
   send: Send,
-  twitter: Twitter,
 };
 
 export const Icon = ({ icon, className, ...rest }) => {

@@ -45,8 +45,8 @@ export const Uses = () => {
                     <Link href="https://www.figma.com">Figma</Link> is my primary tool for
                     UI design these days. Made the switch from Sketch in 2020 and haven’t
                     looked back. I’ve also created{' '}
-                    <Link href="https://www.figma.com/@hamish">a few plugins</Link> that
-                    you can install.
+                    <Link href="https://www.figma.com/@Joe">a few plugins</Link> that you
+                    can install.
                   </ListItem>
                   <ListItem>
                     Any motion graphics I create are created in Adobe After Effects. So
@@ -103,7 +103,7 @@ export const Uses = () => {
                   <ListItem>
                     For building and testing UI components in isolation I use{' '}
                     <Link href="https://storybook.js.org/">Storybook</Link>. Check out the{' '}
-                    <Link href="https://storybook.hamishw.com">
+                    <Link href="https://storybook.Joew.com">
                       storybook for this website
                     </Link>
                     .
