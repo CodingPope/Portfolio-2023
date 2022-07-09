@@ -61,11 +61,10 @@ I do not give permission to present any of my projects as your own (this is bein
 <details>
   <summary>How do I change the color on the <code>DisplacementSphere</code> (blobby rotating thing in the background).</summary>
   
-  You'll need to edit the fragment shader. [Check out this issue for more details](https://github.com/HamishMW/portfolio/issues/19#issuecomment-870996615).
 </details>
 
 <details>
   <summary>How do I get the contact form to work?</summary>
   
-  It's set up using a serverless function with AWS Lambda. You'll need to set up an AWS account and deploy the function. [Refer to this issue for more details](https://github.com/codingPope/portfolio/issues/21#issuecomment-958727113).
+  It's set up using a serverless function with AWS Lambda. You'll need to set up an AWS account and deploy the function. [Refer to this issue for more details](https://github.com/HamishMW/portfolio/issues/21#issuecomment-958727113).
 </details>

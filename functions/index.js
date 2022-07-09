@@ -17,8 +17,8 @@ const ses = new aws.SES({
 const ORIGINS = ['https://Joew.com', 'https://www.Joew.com'];
 const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
-const EMAIL = 'Jokwonpope1561@m.com';
-const FROM_EMAIL = 'okwonpope1561@m.com';
+const EMAIL = 'Jokwonpope1561@gmail.com';
+const FROM_EMAIL = 'jokwonpope1561@gmail.com';
 
 app.use(helmet());
 app.use(express.json());
