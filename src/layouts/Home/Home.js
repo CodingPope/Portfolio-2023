@@ -1,3 +1,10 @@
+import movieListL from 'assets/MovieList.png';
+import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
+import movieList from 'assets/MovieList.png';
+import cryptoImgL from 'assets/crypto-large.PNG';
+import gamestackTexture2Placeholder from 'assets/gamestack-list-placeholder.jpg';
+import crypto from 'assets/crypto.PNG';
+import gamestackTexturePlaceholder from 'assets/gamestack-login-placeholder.jpg';
 import { Footer } from 'components/Footer';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
@@ -18,7 +25,7 @@ export const Home = () => {
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, /* projectOne, projectTwo, projectThree,*/ details];
+    const sections = [intro, projectOne, projectTwo, /*projectThree,*/ details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -57,7 +64,7 @@ export const Home = () => {
     <div className={styles.home}>
       <Meta
         title="Developer"
-        description="Design portfolio of Jokwon Pope — a product designer working on web & mobile
+        description="Design portfolio of Jokwon Pope — a software developer  working on web & mobile
           apps with a focus on motion, experience design, and accessibility."
       />
       <Intro
@@ -66,21 +73,21 @@ export const Home = () => {
         disciplines={disciplines}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      {/* <ProjectSummary
+      <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
+        title="Movie Ranking and Reviews"
+        description="Check the ranking of your favorite movies and get information on new movies"
         buttonText="View project"
         buttonLink=""
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'MovieList photo',
           textures: [
             {
-              srcSet: [sprTexture, sprTextureLarge],
+              srcSet: [movieList, movieListL],
               placeholder: sprTexturePlaceholder,
             },
           ],
@@ -92,8 +99,8 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
+        title="Crypto tracking"
+        description="Design and development for a crypto tracking app built in React Native"
         buttonText="View website"
         buttonLink=""
         model={{
@@ -101,17 +108,17 @@ export const Home = () => {
           alt: 'App login screen',
           textures: [
             {
-              srcSet: [gamestackTexture, gamestackTextureLarge],
+              srcSet: [crypto, cryptoImgL],
               placeholder: gamestackTexturePlaceholder,
             },
             {
-              srcSet: [gamestackTexture2, gamestackTexture2Large],
+              srcSet: [crypto, cryptoImgL],
               placeholder: gamestackTexture2Placeholder,
             },
           ],
         }}
       />
-      <ProjectSummary
+      {/*<ProjectSummary
         id="project-3"
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
