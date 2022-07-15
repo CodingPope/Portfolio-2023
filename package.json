@@ -4,7 +4,7 @@
   "homepage": "https://Joew.com",
   "description": "Portfolio site for Jokwon Pope",
   "repository": "https://github.com/codingPope/portfolio.git",
-  "author": "Jokwon Pope <hello@Joew.com>",
+  "author": "Jokwon Pope <Jokwonpope1561@gmail.com>",
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
     "@storybook/addon-a11y": "^6.4.22",
