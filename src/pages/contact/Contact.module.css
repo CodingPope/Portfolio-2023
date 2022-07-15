@@ -96,43 +96,35 @@
 }
 
 .input {
-  transition-property: opacity;
-  transition-timing-function: var(--bezierFastoutSlowin);
-  transition-duration: var(--durationXL);
-  transition-delay: var(--delay);
-  opacity: 0;
+  display: block;
+  color: var(--colorTextBody);
+  box-shadow: inset 0 -2px 0 0 var(--inputUnderlineColor);
+  transition: background-color 5000s linear 0s;
+  width: 100%;
+  font-size: var(--inputFontSize);
+  line-height: var(--lineHeightBody);
+  padding: var(--spaceL) 0 var(--spaceM);
+  overflow-x: hidden;
+  outline: none;
 
-  @media (--mediaUseMotion) {
-    transition-property: transform, opacity;
-    transform: translate3d(0, var(--space3XL), 0);
+  &:-internal-autofill-selected {
+    -webkit-text-fill-color: var(--colorTextBody);
+    box-shadow: 0 0 0 1000px rgb(var(--rgbText) / 0.1) inset;
   }
 
-  & + & {
-    margin-top: var(--spaceXL);
+  /* Needs to be a single selector to work in safari */
+  &:-webkit-autofill {
+    -webkit-text-fill-color: var(--colorTextBody);
+    box-shadow: 0 0 0 1000px rgb(var(--rgbText) / 0.1) inset;
   }
 
-  &[data-status='entering'],
-  &[data-status='entered'] {
-    transform: none;
-    opacity: 1;
+  &::-webkit-contacts-auto-fill-button:hover {
+    background-color: rgb(var(--rgbPrimary));
   }
 
-  &[data-hidden='true'] {
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, var(--space3XL), 0);
-      transform: none;
-    }
-  }
-
-  &[data-status='exiting'] {
-    transition-duration: var(--durationM);
-    transition-delay: 0s;
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
+  @media (--mediaReduceMotion) {
+    @nest #root & {
+      transition: background-color 5000s linear 0s;
     }
   }
 }
