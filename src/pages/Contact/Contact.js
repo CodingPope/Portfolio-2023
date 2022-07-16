@@ -3,8 +3,6 @@ import { DecoderText } from 'components/DecoderText';
 import { Divider } from 'components/Divider';
 import { Footer } from 'components/Footer';
 import { Heading } from 'components/Heading';
-import { Icon } from 'components/Icon';
-import { Input } from 'components/Input';
 import { Meta } from 'components/Meta';
 import { Section } from 'components/Section';
 import { Text } from 'components/Text';
