@@ -80,7 +80,7 @@ export const Home = () => {
         index={1}
         title="Movie Ranking and Reviews"
         description="Check the ranking of your favorite movies and get information on new movies"
-        buttonText="View project"
+        buttonText="View repo"
         buttonLink="https://github.com/CodingPope/Movie-List"
         model={{
           type: 'laptop',
@@ -101,7 +101,7 @@ export const Home = () => {
         index={2}
         title="Crypto tracking"
         description="Design and development for a crypto tracking app built in React Native"
-        buttonText="View website"
+        buttonText="View repo"
         buttonLink="https://github.com/CodingPope/CryptoTracker"
         model={{
           type: 'phone',
