@@ -34,9 +34,3 @@ npm run build
   <summary>How do I change the color on the <code>DisplacementSphere</code> (blobby rotating thing in the background).</summary>
   
 </details>
-
-<details>
-  <summary>How do I get the contact form to work?</summary>
-  
-  It's set up using a serverless function with AWS Lambda. You'll need to set up an AWS account and deploy the function. [Refer to this issue for more details](https://github.com/HamishMW/portfolio/issues/21#issuecomment-958727113).
-</details>
