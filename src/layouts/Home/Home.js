@@ -13,7 +13,7 @@ import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 
-const disciplines = ['Full-stack', 'Front-end', 'ContentCreator', 'Oreo Enthusiast'];
+const disciplines = ['Full-stack', 'Front-end', 'Content Creator', 'Oreo Enthusiast'];
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -81,7 +81,7 @@ export const Home = () => {
         title="Movie Ranking and Reviews"
         description="Check the ranking of your favorite movies and get information on new movies"
         buttonText="View project"
-        buttonLink=""
+        buttonLink="https://github.com/CodingPope/Movie-List"
         model={{
           type: 'laptop',
           alt: 'MovieList photo',
@@ -102,7 +102,7 @@ export const Home = () => {
         title="Crypto tracking"
         description="Design and development for a crypto tracking app built in React Native"
         buttonText="View website"
-        buttonLink=""
+        buttonLink="https://github.com/CodingPope/CryptoTracker"
         model={{
           type: 'phone',
           alt: 'App login screen',
