@@ -21,10 +21,13 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Joe, currently I live in Denver colorado and am building my skills to be
-      Full-stack guru! I am a Full-Stack Developer leaning more towards the front end with
-      an interest social media, gaming,e-commerce, NFTs, and aerospace. If you want to
-      keep up with my work feel free to follow my{' '}
+      Hey there! I&apos;m Joe Pope, a Denver-based full-stack developer with a focus on
+      front-end development. I specialize in the MERN stack, with a bit of.NET Core, and
+      Blazorize. Beyond coding, I&apos;m a content creator on YouTube, a photography
+      enthusiast, and an aspiring entrepreneur. My hobbies include long-boarding,
+      traveling, gaming, and exploring new cuisines. Join me on my web portfolio as I
+      blend creativity and technology to showcase my anime-inspired creations. Let&apos;s
+      connect and explore the world of development together! 🚀{' '}
       <Link href="https://github.com/codingpope">Github</Link>
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">

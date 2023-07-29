@@ -1,4 +1,6 @@
 import movieListL from 'assets/MovieList.png';
+import figmaCover from 'assets/figmaCover.png';
+import figmaCoverL from 'assets/figmaCoverL.png';
 import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
 import movieList from 'assets/MovieList.png';
 import cryptoImgL from 'assets/crypto-large.PNG';
@@ -25,7 +27,7 @@ export const Home = () => {
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, /*projectThree,*/ details];
+    const sections = [intro, projectOne, projectTwo, projectThree, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -118,26 +120,26 @@ export const Home = () => {
           ],
         }}
       />
-      {/*<ProjectSummary
+      <ProjectSummary
         id="project-3"
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        title="UI/UX Designs"
+        description="Projects that I am currently builing out on Figma"
         buttonText="View project"
-        buttonLink="/projects/slice"
+        buttonLink="https://www.figma.com/file/KaSKxkYtLWSDJx29qunN0Y/UI%2FUX-Designs?"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'An image of a design system',
           textures: [
             {
-              srcSet: [sliceTexture, sliceTextureLarge],
-              placeholder: sliceTexturePlaceholder,
+              srcSet: [figmaCover, figmaCoverL],
+              placeholder: sprTexturePlaceholder,
             },
           ],
         }}
-      /> */}
+      />
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
