@@ -20,7 +20,7 @@ export const navLinks = [
 export const socialLinks = [
   {
     label: 'Resume',
-    url: 'https://docs.google.com/document/d/1J1s8kWY-m3c2S_Qo9qQfPc-E98XDKkku/edit?usp=sharing&ouid=101052393278984463855&rtpof=true&sd=true',
+    url: 'https://docs.google.com/document/d/19Aae3_zmq93cM-GMKXelCPOmsla5dyUts7b0sWsEGDU/edit?usp=sharing',
     icon: 'resume',
   },
   {

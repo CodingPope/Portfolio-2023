@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
 const { createHash } = require('crypto');
@@ -23,15 +22,7 @@ export async function generateOgImage(props) {
     // file does not exists, so we create it
   }
 
-  const browser = await puppeteer.launch({ headless: true });
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1200, height: 630 });
-  await page.goto(url, { waitUntil: 'networkidle0' });
-  const buffer = await page.screenshot();
-  await browser.close();
-
   fs.mkdirSync(ogImageDir, { recursive: true });
-  fs.writeFileSync(imagePath, buffer);
 
   return publicPath;
 }

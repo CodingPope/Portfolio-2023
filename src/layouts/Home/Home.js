@@ -3,9 +3,9 @@ import figmaCover from 'assets/figmaCover.png';
 import figmaCoverL from 'assets/figmaCoverL.png';
 import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
 import movieList from 'assets/MovieList.png';
-import cryptoImgL from 'assets/crypto-large.PNG';
+import SocialCircleProfile from 'assets/SocialCircleProfile.png';
 import gamestackTexture2Placeholder from 'assets/gamestack-list-placeholder.jpg';
-import crypto from 'assets/crypto.PNG';
+import SocialCircleMap from 'assets/SocialCircleMap.png';
 import gamestackTexturePlaceholder from 'assets/gamestack-login-placeholder.jpg';
 import { Footer } from 'components/Footer';
 import { Meta } from 'components/Meta';
@@ -101,20 +101,20 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Crypto tracking"
-        description="Design and development for a crypto tracking app built in React Native"
+        title="Social Circle"
+        description="Design and development for a social media app built in React Native"
         buttonText="View repo"
-        buttonLink="https://github.com/CodingPope/CryptoTracker"
+        buttonLink="https://github.com/CodingPope/SocialCircle"
         model={{
           type: 'phone',
           alt: 'App login screen',
           textures: [
             {
-              srcSet: [crypto, cryptoImgL],
+              srcSet: [SocialCircleMap, SocialCircleProfile],
               placeholder: gamestackTexturePlaceholder,
             },
             {
-              srcSet: [crypto, cryptoImgL],
+              srcSet: [SocialCircleProfile, SocialCircleMap],
               placeholder: gamestackTexture2Placeholder,
             },
           ],

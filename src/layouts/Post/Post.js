@@ -20,7 +20,7 @@ export const Post = ({ children, title, date, abstract, banner, timecode, ogImag
   const scrollToHash = useScrollToHash();
   const imageRef = useRef();
   const [dateTime, setDateTime] = useState(null);
-  
+
   useEffect(() => {
     setDateTime(formatDate(date));
   }, [date, dateTime]);

@@ -3,7 +3,6 @@ import { DecoderText } from 'components/DecoderText';
 import { Divider } from 'components/Divider';
 import { Footer } from 'components/Footer';
 import { Heading } from 'components/Heading';
-import { Icon } from 'components/Icon';
 import { Input } from 'components/Input';
 import { Meta } from 'components/Meta';
 import { Section } from 'components/Section';
@@ -11,56 +10,38 @@ import { Text } from 'components/Text';
 import { tokens } from 'components/ThemeProvider/theme';
 import { Transition } from 'components/Transition';
 import { useFormInput } from 'hooks';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { cssProps, msToNum, numToMs } from 'utils/style';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
 export const Contact = () => {
-  const errorRef = useRef();
+  const form = useRef();
   const email = useFormInput('');
+  const name = useFormInput('');
   const message = useFormInput('');
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
-  const [statusError, setStatusError] = useState('');
   const initDelay = tokens.base.durationS;
 
-  const onSubmit = async event => {
-    event.preventDefault();
-    setStatusError('');
+  const sendEmail = e => {
+    e.preventDefault();
 
-    if (sending) return;
-
-    try {
-      setSending(true);
-
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/message`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
+    emailjs
+      .sendForm('service_it9yeve', 'template_mhwh75h', form.current, '2J_Qizti9JpwzQY-M')
+      .then(
+        result => {
+          console.log(result.text);
+          console.log(form.current);
+          setComplete(true);
+          setSending(false);
         },
-        body: JSON.stringify({
-          email: email.value,
-          message: message.value,
-        }),
-      });
 
-      const responseMessage = await response.json();
-
-      const statusError = getStatusError({
-        status: response?.status,
-        errorMessage: responseMessage?.error,
-        fallback: 'There was a problem sending your message',
-      });
-
-      if (statusError) throw new Error(statusError);
-
-      setComplete(true);
-      setSending(false);
-    } catch (error) {
-      setSending(false);
-      setStatusError(error.message);
-    }
+        error => {
+          console.log(error.text);
+          setSending(false);
+        }
+      );
   };
 
   return (
@@ -71,7 +52,7 @@ export const Contact = () => {
       />
       <Transition unmount in={!complete} timeout={1600}>
         {(visible, status) => (
-          <form className={styles.form} method="post" onSubmit={onSubmit}>
+          <form className={styles.form} ref={form} onSubmit={sendEmail}>
             <Heading
               className={styles.title}
               data-status={status}
@@ -81,6 +62,7 @@ export const Contact = () => {
             >
               <DecoderText text="Say hello" start={status !== 'exited'} delay={300} />
             </Heading>
+
             <Divider
               className={styles.divider}
               data-status={status}
@@ -91,9 +73,22 @@ export const Contact = () => {
               className={styles.input}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay)}
+              autoComplete="name"
+              label="Name"
+              type="text"
+              name="user_name"
+              maxLength={50}
+              {...name}
+            />
+            <Input
+              required
+              className={styles.input}
+              data-status={status}
+              style={getDelay(tokens.base.durationXS, initDelay)}
               autoComplete="email"
-              label="Your Email"
+              label="Email"
               type="email"
+              name="user_email"
               maxLength={512}
               {...email}
             />
@@ -104,28 +99,12 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationS, initDelay)}
               autoComplete="off"
+              name="message"
               label="Message"
               maxLength={4096}
               {...message}
             />
-            <Transition in={statusError} timeout={msToNum(tokens.base.durationM)}>
-              {errorStatus => (
-                <div
-                  className={styles.formError}
-                  data-status={errorStatus}
-                  style={cssProps({
-                    height: errorStatus ? errorRef.current?.offsetHeight : 0,
-                  })}
-                >
-                  <div className={styles.formErrorContent} ref={errorRef}>
-                    <div className={styles.formErrorMessage}>
-                      <Icon className={styles.formErrorIcon} icon="error" />
-                      {statusError}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </Transition>
+
             <Button
               className={styles.button}
               data-status={status}
@@ -135,6 +114,7 @@ export const Contact = () => {
               loading={sending}
               loadingText="Sending..."
               icon="send"
+              value="send"
               type="submit"
             >
               Send message
@@ -180,25 +160,6 @@ export const Contact = () => {
     </Section>
   );
 };
-
-function getStatusError({
-  status,
-  errorMessage,
-  fallback = 'There was a problem with your request',
-}) {
-  if (status === 200) return false;
-
-  const statuses = {
-    500: 'There was a problem with the server, try again later',
-    404: 'There was a problem connecting to the server. Make sure you are connected to the internet',
-  };
-
-  if (errorMessage) {
-    return errorMessage;
-  }
-
-  return statuses[status] || fallback;
-}
 
 function getDelay(delayMs, offset = numToMs(0), multiplier = 1) {
   const numDelay = msToNum(delayMs) * multiplier;

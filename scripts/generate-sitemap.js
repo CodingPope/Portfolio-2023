@@ -4,7 +4,6 @@ const { bundleMDX } = require('mdx-bundler');
 function addPage(page) {
   const path = page
     .replace('src/pages', '')
-    .replace('.page.js', '')
     .replace('.page.mdx', '')
     .replace('/index', '/');
   const route = path === '/index' ? '' : path;
@@ -35,11 +34,7 @@ async function addPost(post) {
 async function generateSitemap() {
   const { globby } = await import('globby');
   // Ignore Next.js specific files (e.g., _app.js) and API routes.
-  const pages = await globby([
-    'src/pages/**/*{.page.js,.page.mdx}',
-    '!src/pages/_*.js',
-    '!src/pages/api',
-  ]);
+  const pages = await globby(['!src/pages/_*.js', '!src/pages/api']);
   const postUrls = await globby(['src/posts/**/*.mdx']);
   const posts = await Promise.all(postUrls.map(addPost));
 
