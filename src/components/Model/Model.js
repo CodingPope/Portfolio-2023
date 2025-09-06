@@ -394,8 +394,9 @@ const Device = ({
     // Generate promises to await when ready
     const load = async () => {
       const { texture, position, url } = model;
-      let loadFullResTexture;
-      let playAnimation;
+      // Initialize with a no-op function to prevent "not a function" error
+      let loadFullResTexture = async () => {};
+      let playAnimation = () => {};
 
       const [placeholder, gltf] = await Promise.all([
         await textureLoader.loadAsync(texture.placeholder.src),
@@ -422,16 +423,22 @@ const Device = ({
           applyScreenTexture(placeholder, placeholderScreen.current);
 
           loadFullResTexture = async () => {
-            const image = await resolveSrcFromSrcSet(texture);
-            const fullSize = await textureLoader.loadAsync(image);
-            await applyScreenTexture(fullSize, node);
+            try {
+              const image = await resolveSrcFromSrcSet(texture);
+              const fullSize = await textureLoader.loadAsync(image);
+              await applyScreenTexture(fullSize, node);
 
-            animate(1, 0, {
-              onUpdate: value => {
-                placeholderScreen.current.material.opacity = value;
-                renderFrame();
-              },
-            });
+              animate(1, 0, {
+                onUpdate: value => {
+                  if (placeholderScreen.current) {
+                    placeholderScreen.current.material.opacity = value;
+                    renderFrame();
+                  }
+                },
+              });
+            } catch (error) {
+              console.error('Error loading full resolution texture:', error);
+            }
           };
         }
       });
@@ -509,18 +516,25 @@ const Device = ({
     let animation;
 
     const onLoad = async () => {
-      const { loadFullResTexture, playAnimation } = await loadDevice.start();
+      try {
+        const result = await loadDevice.start();
+        const loadFullResTexture = result?.loadFullResTexture || (async () => {});
+        const playAnimation = result?.playAnimation || (() => {});
 
-      setLoaded(true);
+        setLoaded(true);
 
-      if (!reduceMotion) {
-        animation = playAnimation();
-      }
+        if (!reduceMotion) {
+          animation = playAnimation();
+        }
 
-      await loadFullResTexture();
+        await loadFullResTexture();
 
-      if (reduceMotion) {
-        renderFrame();
+        if (reduceMotion) {
+          renderFrame();
+        }
+      } catch (error) {
+        console.error('Error loading device model:', error);
+        setLoaded(true); // Still mark as loaded to avoid hanging UI
       }
     };
 
