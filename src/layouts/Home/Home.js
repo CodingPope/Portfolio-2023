@@ -81,7 +81,9 @@ export const Home = () => {
         visible={visibleSections.includes(projectOne.current)}
         index={1}
         title="Movie Ranking and Reviews"
-        description="Check the ranking of your favorite movies and get information on new movies"
+        description="A lightweight movie ranking and discovery app powered by API data.
+
+MovieList is a simple React app that fetches live movie data from a public API and displays rankings, details, and ratings in a clean interface."
         buttonText="View repo"
         buttonLink="https://github.com/CodingPope/Movie-List"
         model={{
@@ -102,7 +104,9 @@ export const Home = () => {
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
         title="Social Circle"
-        description="Design and development for a social media app built in React Native"
+        description="A location-based social discovery app for making real connections in the city.
+
+I designed and built Social Circle from the ground up using React Native, Firebase, and Firestore. The app helps users discover local events, host gatherings, and find like-minded people based on interests and proximity."
         buttonText="View repo"
         buttonLink="https://github.com/CodingPope/SocialCircle"
         model={{
