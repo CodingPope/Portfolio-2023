@@ -50,10 +50,11 @@ This app references the following variables at runtime:
 <details>
   <summary>How do I change the color/feel of the <code>DisplacementSphere</code> (the blobby rotating background)?</summary>
 
-  The sphere is rendered in `src/layouts/Home/DisplacementSphere.js` and uses custom shaders:
+The sphere is rendered in `src/layouts/Home/DisplacementSphere.js` and uses custom shaders:
 
-  - `src/layouts/Home/displacementSphereVertex.glsl`
-  - `src/layouts/Home/displacementSphereFragment.glsl`
+- `src/layouts/Home/displacementSphereVertex.glsl`
+- `src/layouts/Home/displacementSphereFragment.glsl`
 
-  Lighting and background color come from the active theme (see `ThemeProvider`), e.g. `rgbBackground` / `colorWhite`.
+Lighting and background color come from the active theme (see `ThemeProvider`), e.g. `rgbBackground` / `colorWhite`.
+
 </details>
