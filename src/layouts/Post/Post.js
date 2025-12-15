@@ -86,13 +86,14 @@ export const Post = ({ children, title, date, abstract, banner, timecode, ogImag
               ))}
             </Heading>
             <div className={styles.details}>
-              <RouterLink
-                href="#postContent"
-                className={styles.arrow}
-                aria-label="Scroll to post content"
-                onClick={handleScrollIndicatorClick}
-              >
-                <ArrowDown aria-hidden />
+              <RouterLink href="#postContent" scroll={false} legacyBehavior>
+                <a
+                  className={styles.arrow}
+                  aria-label="Scroll to post content"
+                  onClick={handleScrollIndicatorClick}
+                >
+                  <ArrowDown aria-hidden />
+                </a>
               </RouterLink>
               <div className={styles.timecode}>{timecode}</div>
             </div>

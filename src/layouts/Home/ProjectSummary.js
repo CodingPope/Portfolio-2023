@@ -26,7 +26,6 @@ export const ProjectSummary = ({
   buttonText,
   buttonLink,
   alternate,
-  featured,
   techStack,
   status,
   caseStudyLink,
