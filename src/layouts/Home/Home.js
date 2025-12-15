@@ -7,6 +7,8 @@ import SocialCircleProfile from 'assets/SocialCircleProfile.png';
 import gamestackTexture2Placeholder from 'assets/gamestack-list-placeholder.jpg';
 import SocialCircleMap from 'assets/SocialCircleMap.png';
 import gamestackTexturePlaceholder from 'assets/gamestack-login-placeholder.jpg';
+import ProxChatImg1 from 'assets/ProxChatImg1.png';
+import ProxChatImg2 from 'assets/ProxChatImg2.png';
 import { Footer } from 'components/Footer';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
@@ -24,10 +26,11 @@ export const Home = () => {
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
+  const projectFour = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -80,6 +83,78 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
+        title="Social Circle"
+        description="Map-first hyperlocal events platform
+
+A product-focused app designed to help people meet organically through shared interests. Social Circle rethinks local discovery by combining real-time maps, event-based interaction, and lightweight social context—without turning connection into a swipe game."
+        featured={true}
+        techStack={[
+          'React Native',
+          'Firebase',
+          'Maps',
+          'Event chat',
+          'RSVP & discovery',
+          'Interest-based filtering',
+        ]}
+        status="TestFlight beta"
+        caseStudyLink="/articles/Why-Social-Circle-Exists"
+        buttonText="GitHub"
+        buttonLink="https://github.com/CodingPope/SocialCircle"
+        model={{
+          type: 'phone',
+          alt: 'App login screen',
+          textures: [
+            {
+              srcSet: [SocialCircleMap, SocialCircleProfile],
+              placeholder: gamestackTexturePlaceholder,
+            },
+            {
+              srcSet: [SocialCircleProfile, SocialCircleMap],
+              placeholder: gamestackTexture2Placeholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-2"
+        alternate
+        sectionRef={projectTwo}
+        visible={visibleSections.includes(projectTwo.current)}
+        index={2}
+        title="ProxChat"
+        description="Proximity-based voice/chat experiment
+
+A concept project exploring how communication can emerge from shared physical presence rather than profiles or social graphs. ProxChat focuses on ephemeral, low-friction interaction and real-time awareness."
+        techStack={[
+          'Agora / WebRTC',
+          'Realtime communication',
+          'Presence detection',
+          'Ephemeral rooms',
+        ]}
+        status="Concept prototype"
+        caseStudyLink="/articles/proxchat"
+        buttonText="GitHub"
+        buttonLink="https://github.com/CodingPope/ProxChat"
+        model={{
+          type: 'phone',
+          alt: 'ProxChat app screen',
+          textures: [
+            {
+              srcSet: [ProxChatImg2, ProxChatImg2],
+              placeholder: gamestackTexturePlaceholder,
+            },
+            {
+              srcSet: [ProxChatImg1, ProxChatImg1],
+              placeholder: gamestackTexture2Placeholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-3"
+        sectionRef={projectThree}
+        visible={visibleSections.includes(projectThree.current)}
+        index={3}
         title="Movie Ranking and Reviews"
         description="A lightweight movie ranking and discovery app powered by API data.
 
@@ -98,37 +173,11 @@ MovieList is a simple React app that fetches live movie data from a public API a
         }}
       />
       <ProjectSummary
-        id="project-2"
+        id="project-4"
         alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
-        title="Social Circle"
-        description="A location-based social discovery app for making real connections in the city.
-
-I designed and built Social Circle from the ground up using React Native, Firebase, and Firestore. The app helps users discover local events, host gatherings, and find like-minded people based on interests and proximity."
-        buttonText="View repo"
-        buttonLink="https://github.com/CodingPope/SocialCircle"
-        model={{
-          type: 'phone',
-          alt: 'App login screen',
-          textures: [
-            {
-              srcSet: [SocialCircleMap, SocialCircleProfile],
-              placeholder: gamestackTexturePlaceholder,
-            },
-            {
-              srcSet: [SocialCircleProfile, SocialCircleMap],
-              placeholder: gamestackTexture2Placeholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
+        sectionRef={projectFour}
+        visible={visibleSections.includes(projectFour.current)}
+        index={4}
         title="UI/UX Designs"
         description="Projects that I am currently builing out on Figma"
         buttonText="View project"

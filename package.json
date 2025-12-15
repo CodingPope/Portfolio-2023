@@ -39,7 +39,7 @@
   },
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build && next export -o build/",
+    "build": "NEXT_PRIVATE_STANDALONE=true next build --webpack",
     "start": "next start",
     "test": "echo 'write some tests'"
   },

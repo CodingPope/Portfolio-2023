@@ -26,6 +26,10 @@ export const ProjectSummary = ({
   buttonText,
   buttonLink,
   alternate,
+  featured,
+  techStack,
+  status,
+  caseStudyLink,
   ...rest
 }) => {
   const [focused, setFocused] = useState(false);
@@ -67,22 +71,46 @@ export const ProjectSummary = ({
           {indexText}
         </span>
       </div>
-      <Heading
-        level={3}
-        as="h2"
-        className={styles.title}
-        data-visible={visible}
-        id={titleId}
-      >
-        {title}
-      </Heading>
+      <div className={styles.titleRow}>
+        <Heading
+          level={3}
+          as="h2"
+          className={styles.title}
+          data-visible={visible}
+          id={titleId}
+        >
+          {title}
+        </Heading>
+      </div>
       <Text className={styles.description} data-visible={visible} as="p">
         {description}
       </Text>
-      <div className={styles.button} data-visible={visible}>
-        <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
-          {buttonText}
-        </Button>
+      {techStack && (
+        <div className={styles.techStack} data-visible={visible}>
+          {techStack.map((tech, i) => (
+            <span key={i} className={styles.techItem}>
+              • {tech}
+            </span>
+          ))}
+        </div>
+      )}
+      {status && (
+        <Text className={styles.status} data-visible={visible} as="p">
+          Status: {status}
+        </Text>
+      )}
+      <div className={styles.buttons} data-visible={visible}>
+        {caseStudyLink && (
+          <Button iconHoverShift href={caseStudyLink} iconEnd="arrowRight">
+            Case Study
+          </Button>
+        )}
+
+        {buttonLink && (
+          <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
+            {buttonText || 'View Repo'}
+          </Button>
+        )}
       </div>
     </div>
   );
