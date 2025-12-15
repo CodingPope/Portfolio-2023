@@ -16,7 +16,11 @@ export const Link = forwardRef(({ href, ...rest }, ref) => {
     return <LinkContent href={href} ref={ref} {...rest} />;
   }
 
-  return <LinkContent as={RouterLink} href={href} scroll={false} ref={ref} {...rest} />;
+  return (
+    <RouterLink href={href} scroll={false} passHref>
+      <LinkContent ref={ref} {...rest} />
+    </RouterLink>
+  );
 });
 
 export const LinkContent = forwardRef(
