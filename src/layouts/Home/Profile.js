@@ -7,7 +7,6 @@ import { DecoderText } from 'components/DecoderText';
 import { Divider } from 'components/Divider';
 import { Heading } from 'components/Heading';
 import { Image } from 'components/Image';
-import { Link } from 'components/Link';
 import { Section } from 'components/Section';
 import { Text } from 'components/Text';
 import { Transition } from 'components/Transition';
@@ -56,6 +55,38 @@ export const Profile = ({ id, visible, sectionRef }) => {
           <div className={styles.content}>
             <div className={styles.column}>
               <ProfileText visible={visible} titleId={titleId} />
+              <div className={styles.socialLinks} data-visible={visible}>
+                <Button
+                  iconHoverShift
+                  className={styles.socialButton}
+                  href="https://www.youtube.com/@Joe_Pope"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  iconEnd="arrowRight"
+                >
+                  YouTube
+                </Button>
+                <Button
+                  iconHoverShift
+                  className={styles.socialButton}
+                  href="https://www.instagram.com/thejoepope/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  iconEnd="arrowRight"
+                >
+                  Instagram
+                </Button>
+                <Button
+                  iconHoverShift
+                  className={styles.socialButton}
+                  href="https://github.com/CodingPope/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  iconEnd="arrowRight"
+                >
+                  GitHub
+                </Button>
+              </div>
               <Button
                 secondary
                 className={styles.button}

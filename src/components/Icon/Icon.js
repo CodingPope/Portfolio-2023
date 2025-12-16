@@ -10,6 +10,8 @@ import Error from './svg/error.svg';
 import Figma from './svg/figma.svg';
 import Resume from './svg/resume.svg';
 import Github from './svg/github.svg';
+import Instagram from './svg/instagram.svg';
+import Youtube from './svg/youtube.svg';
 import Link from './svg/link.svg';
 import Menu from './svg/menu.svg';
 import Pause from './svg/pause.svg';
@@ -27,6 +29,8 @@ export const icons = {
   figma: Figma,
   resume: Resume,
   github: Github,
+  instagram: Instagram,
+  youtube: Youtube,
   link: Link,
   menu: Menu,
   pause: Pause,

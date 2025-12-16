@@ -141,3 +141,20 @@
     opacity: 1;
   }
 }
+
+.socialLinks {
+  display: flex;
+  gap: var(--spaceM);
+  margin-bottom: var(--spaceXL);
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity var(--durationXL) ease var(--durationL);
+
+  &[data-visible='true'] {
+    opacity: 1;
+  }
+}
+
+.socialButton {
+  opacity: 1;
+}
