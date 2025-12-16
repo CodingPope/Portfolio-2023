@@ -15,6 +15,9 @@ import { cssProps, msToNum, numToMs } from 'utils/style';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
+// Initialize EmailJS with your public key
+emailjs.init('2J_Qizti9JpwzQY-M');
+
 export const Contact = () => {
   const form = useRef();
   const email = useFormInput('');
@@ -26,19 +29,20 @@ export const Contact = () => {
 
   const sendEmail = e => {
     e.preventDefault();
+    setSending(true);
 
     emailjs
-      .sendForm('service_it9yeve', 'template_mhwh75h', form.current, '2J_Qizti9JpwzQY-M')
+      .sendForm('service_o7575xh', 'template_mhwh75h', form.current)
       .then(
         result => {
-          console.log(result.text);
-          console.log(form.current);
+          console.log('SUCCESS!', result);
           setComplete(true);
           setSending(false);
         },
 
         error => {
-          console.log(error.text);
+          console.error('FAILED...', error);
+          alert(`Failed to send message: ${error.text || error.message || 'Unknown error'}. Please check the console for details.`);
           setSending(false);
         }
       );
