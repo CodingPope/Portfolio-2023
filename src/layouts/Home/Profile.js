@@ -21,21 +21,17 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      Hey there — I’m Joe Pope. I’m a creative technologist who enjoys building things
-      that sit at the intersection of software, design, and human behavior. While my
-      foundation is in front-end and full-stack development, I’m less interested in titles
-      than I am in how ideas become experiences—how something starts as a rough concept
-      and turns into a product people actually want to use. I spend a lot of time
-      experimenting: with interfaces, side projects, content, and new directions. Some of
-      that shows up as web and mobile applications, some of it as YouTube videos,
-      photography, or early-stage product ideas. I’m naturally entrepreneurial, curious by
-      default, and happiest when I’m learning in public and iterating on things that don’t
-      have a clear outcome yet. Outside of work, I travel when I can, camp, longboard,
-      game, and hunt for good food. I also recently adopted a puppy, which has been a
-      reminder that not everything worth building follows a roadmap. This portfolio is a
-      snapshot of how I think, what I’ve built so far, and the kinds of problems I’m drawn
-      to—both technical and creative.
-      <Link href="https://github.com/codingpope">Github</Link>
+      I’m Joe Pope. I’m a creative technologist who enjoys building things that sit at the
+      intersection of software, design, and human behavior. While my foundation is in
+      front-end and full-stack development, I’m less interested in titles than I am in how
+      ideas become experiences—how something starts as a rough concept and turns into a
+      product people actually want to use. I spend a lot of time experimenting: with
+      interfaces, side projects, content, and new directions. Some of that shows up as web
+      and mobile applications, some of it as YouTube videos, or product ideas. I’m
+      naturally entrepreneurial, curious, and ADD by default. Outside of work, I travel
+      when I can, camp, longboard, game. This portfolio is a snapshot of how I think, what
+      I’ve built so far, and the kinds of problems I’m drawn to—both technical and
+      creative.
     </Text>
   </Fragment>
 );
