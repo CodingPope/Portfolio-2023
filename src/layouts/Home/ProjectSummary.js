@@ -25,6 +25,8 @@ export const ProjectSummary = ({
   model,
   buttonText,
   buttonLink,
+  secondaryButtonText,
+  secondaryButtonLink,
   alternate,
   techStack,
   status,
@@ -108,6 +110,12 @@ export const ProjectSummary = ({
         {buttonLink && (
           <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
             {buttonText || 'View Repo'}
+          </Button>
+        )}
+
+        {secondaryButtonLink && (
+          <Button iconHoverShift href={secondaryButtonLink} iconEnd="arrowRight">
+            {secondaryButtonText || 'View Project'}
           </Button>
         )}
       </div>

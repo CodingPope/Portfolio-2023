@@ -100,6 +100,8 @@ A product-focused app designed to help people meet organically through shared in
         caseStudyLink="/articles/Why-Social-Circle-Exists"
         buttonText="GitHub"
         buttonLink="https://github.com/CodingPope/SocialCircle"
+        secondaryButtonText="Join TestFlight"
+        secondaryButtonLink="https://testflight.apple.com/join/qSuvsM4q"
         model={{
           type: 'phone',
           alt: 'App login screen',
