@@ -28,8 +28,8 @@ const ProfileText = ({ visible, titleId }) => (
       interfaces, side projects, content, and new directions. Some of that shows up as web
       and mobile applications, some of it as YouTube videos, or product ideas. I’m
       naturally entrepreneurial, curious, and ADD by default. Outside of work, I travel
-      when I can, camp, longboard, game. This portfolio is a snapshot of how I think, what
-      I’ve built so far, and the kinds of problems I’m drawn to—both technical and
+      when I can, camp, longboard, and game. This portfolio is a snapshot of how I think,
+      what I’ve built so far, and the kinds of problems I’m drawn to—both technical and
       creative.
     </Text>
   </Fragment>

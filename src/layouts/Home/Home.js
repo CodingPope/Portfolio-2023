@@ -84,7 +84,7 @@ export const Home = () => {
         visible={visibleSections.includes(projectOne.current)}
         index={1}
         title="Social Circle"
-        description="Map-first hyperlocal events platform
+        description="Map-first hyperlocal events platform -
 
 A product-focused app designed to help people meet organically through shared interests. Social Circle rethinks local discovery by combining real-time maps, event-based interaction, and lightweight social context—without turning connection into a swipe game."
         featured={true}
@@ -181,7 +181,7 @@ MovieList is a simple React app that fetches live movie data from a public API a
         visible={visibleSections.includes(projectFour.current)}
         index={4}
         title="UI/UX Designs"
-        description="Projects that I am currently builing out on Figma"
+        description="Projects that I am currently building out on Figma"
         buttonText="View project"
         buttonLink="https://www.figma.com/file/KaSKxkYtLWSDJx29qunN0Y/UI%2FUX-Designs?"
         model={{
