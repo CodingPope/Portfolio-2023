@@ -24,7 +24,7 @@ npm run dev
 ## Scripts
 
 - `npm run dev`: start Next.js in development mode
-- `npm run build`: production build + static export to `build/`
+- `npm run build`: production build
 - `npm run start`: start the Next.js server (run `npm run build` first)
 - `npm test`: placeholder
 

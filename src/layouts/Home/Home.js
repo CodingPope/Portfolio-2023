@@ -1,14 +1,22 @@
-import movieListL from 'assets/MovieList.png';
-import figmaCover from 'assets/figmaCover.png';
-import figmaCoverL from 'assets/figmaCoverL.png';
-import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
-import movieList from 'assets/MovieList.png';
-import SocialCircleProfile from 'assets/SocialCircleProfile.png';
+import figmaCoverL from 'assets/figmaCover-large.webp';
+import figmaCover from 'assets/figmaCover.webp';
 import gamestackTexture2Placeholder from 'assets/gamestack-list-placeholder.jpg';
-import SocialCircleMap from 'assets/SocialCircleMap.png';
 import gamestackTexturePlaceholder from 'assets/gamestack-login-placeholder.jpg';
-import ProxChatImg1 from 'assets/ProxChatImg1.png';
-import ProxChatImg2 from 'assets/ProxChatImg2.png';
+import NiceToMeetHomeL from 'assets/NiceToMeetHome-large.webp';
+import NiceToMeetHome from 'assets/NiceToMeetHome.webp';
+import NiceToMeetSignInL from 'assets/NiceToMeetSignIn-large.webp';
+import NiceToMeetSignIn from 'assets/NiceToMeetSignIn.webp';
+import ProxChatImg1L from 'assets/ProxChatImg1-large.webp';
+import ProxChatImg1 from 'assets/ProxChatImg1.webp';
+import ProxChatImg2L from 'assets/ProxChatImg2-large.webp';
+import ProxChatImg2 from 'assets/ProxChatImg2.webp';
+import SocialCircleMapL from 'assets/SocialCircleMap-large.webp';
+import SocialCircleMap from 'assets/SocialCircleMap.webp';
+import SocialCircleProfileL from 'assets/SocialCircleProfile-large.webp';
+import SocialCircleProfile from 'assets/SocialCircleProfile.webp';
+import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
+import VannaTerminalL from 'assets/VannaTerminal-large.webp';
+import VannaTerminal from 'assets/VannaTerminal.webp';
 import { Footer } from 'components/Footer';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
@@ -27,10 +35,19 @@ export const Home = () => {
   const projectTwo = useRef();
   const projectThree = useRef();
   const projectFour = useRef();
+  const projectFive = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
+    const sections = [
+      intro,
+      projectOne,
+      projectTwo,
+      projectThree,
+      projectFour,
+      projectFive,
+      details,
+    ];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -83,11 +100,44 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
+        title="Vanna Trading Terminal"
+        description="A browser-based paper trading terminal built for practicing execution without risking real capital.
+
+Vanna streams live-feel market data into a customizable grid workspace — watchlist, order book, depth chart, and order ticket — and routes every order through a simulated paper-trading engine with realistic fills, spreads, and order lifecycle tracking."
+        techStack={[
+          'React + TypeScript',
+          'FastAPI (Python)',
+          'Real-time market data',
+          'AG Grid & lightweight-charts',
+          'Paper trading engine',
+          'React Three Fiber',
+        ]}
+        status="Beta"
+        buttonText="Try it live"
+        buttonLink="https://vanna-trading-terminal.vercel.app/"
+        secondaryButtonText="GitHub"
+        secondaryButtonLink="https://github.com/CodingPope/vanna-trading-terminal"
+        model={{
+          type: 'laptop',
+          alt: 'Vanna trading terminal dashboard showing a live chart, order book, and order ticket',
+          textures: [
+            {
+              srcSet: [VannaTerminal, VannaTerminalL],
+              placeholder: sprTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-2"
+        alternate
+        sectionRef={projectTwo}
+        visible={visibleSections.includes(projectTwo.current)}
+        index={2}
         title="Social Circle"
         description="Map-first hyperlocal events platform -
 
 A product-focused app designed to help people meet organically through shared interests. Social Circle rethinks local discovery by combining real-time maps, event-based interaction, and lightweight social context—without turning connection into a swipe game."
-        featured={true}
         techStack={[
           'React Native',
           'Firebase',
@@ -107,22 +157,57 @@ A product-focused app designed to help people meet organically through shared in
           alt: 'App login screen',
           textures: [
             {
-              srcSet: [SocialCircleMap, SocialCircleProfile],
+              srcSet: [SocialCircleMap, SocialCircleMapL],
               placeholder: gamestackTexturePlaceholder,
             },
             {
-              srcSet: [SocialCircleProfile, SocialCircleMap],
+              srcSet: [SocialCircleProfile, SocialCircleProfileL],
               placeholder: gamestackTexture2Placeholder,
             },
           ],
         }}
       />
       <ProjectSummary
-        id="project-2"
+        id="project-3"
+        sectionRef={projectThree}
+        visible={visibleSections.includes(projectThree.current)}
+        index={3}
+        title="Nice to Meet Ya"
+        description="Private community spaces for the groups you actually share a place or a pastime with -
+
+A mobile app for apartment buildings, HOAs, dog meetups, pickup sports and other real-world groups. Join without ever sharing your phone number, choose what is allowed to interrupt you, and keep up with alerts, events, group chat and a neighbor exchange without the 300 person group chat."
+        techStack={[
+          'React Native (Expo)',
+          'TypeScript',
+          'Supabase / Postgres',
+          'Apple & Google sign-in',
+          'Push notifications',
+          'Time-limited alerts',
+        ]}
+        status="In development"
+        buttonText="GitHub"
+        buttonLink="https://github.com/CodingPope/building-app"
+        model={{
+          type: 'phone',
+          alt: 'Nice to Meet Ya sign-in screen and building home feed',
+          textures: [
+            {
+              srcSet: [NiceToMeetSignIn, NiceToMeetSignInL],
+              placeholder: gamestackTexturePlaceholder,
+            },
+            {
+              srcSet: [NiceToMeetHome, NiceToMeetHomeL],
+              placeholder: gamestackTexture2Placeholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-4"
         alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
+        sectionRef={projectFour}
+        visible={visibleSections.includes(projectFour.current)}
+        index={4}
         title="ProxChat"
         description="Proximity-based voice/chat experiment
 
@@ -134,7 +219,6 @@ A concept project exploring how communication can emerge from shared physical pr
           'Ephemeral rooms',
         ]}
         status="Concept prototype"
-        caseStudyLink="/articles/proxchat"
         buttonText="GitHub"
         buttonLink="https://github.com/CodingPope/ProxChat"
         model={{
@@ -142,48 +226,25 @@ A concept project exploring how communication can emerge from shared physical pr
           alt: 'ProxChat app screen',
           textures: [
             {
-              srcSet: [ProxChatImg2, ProxChatImg2],
+              srcSet: [ProxChatImg2, ProxChatImg2L],
               placeholder: gamestackTexturePlaceholder,
             },
             {
-              srcSet: [ProxChatImg1, ProxChatImg1],
+              srcSet: [ProxChatImg1, ProxChatImg1L],
               placeholder: gamestackTexture2Placeholder,
             },
           ],
         }}
       />
       <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Movie Ranking and Reviews"
-        description="A lightweight movie ranking and discovery app powered by API data.
-
-MovieList is a simple React app that fetches live movie data from a public API and displays rankings, details, and ratings in a clean interface."
-        buttonText="View repo"
-        buttonLink="https://github.com/CodingPope/Movie-List"
-        model={{
-          type: 'laptop',
-          alt: 'MovieList photo',
-          textures: [
-            {
-              srcSet: [movieList, movieListL],
-              placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-4"
-        alternate
-        sectionRef={projectFour}
-        visible={visibleSections.includes(projectFour.current)}
-        index={4}
+        id="project-5"
+        sectionRef={projectFive}
+        visible={visibleSections.includes(projectFive.current)}
+        index={5}
         title="UI/UX Designs"
         description="Projects that I am currently building out on Figma"
         buttonText="View project"
-        buttonLink="https://www.figma.com/file/KaSKxkYtLWSDJx29qunN0Y/UI%2FUX-Designs?"
+        buttonLink="https://www.figma.com/design/KaSKxkYtLWSDJx29qunN0Y/UI-UX-Designs?node-id=444-12"
         model={{
           type: 'laptop',
           alt: 'An image of a design system',

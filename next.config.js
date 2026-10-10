@@ -2,6 +2,20 @@ module.exports = {
   reactStrictMode: true,
   trailingSlash: true,
   pageExtensions: ['page.js', 'api.js'],
+  async redirects() {
+    return [
+      {
+        source: '/articles/A%20Civilization%20Beyond%20Money',
+        destination: '/articles/a-civilization-beyond-money/',
+        permanent: true,
+      },
+      {
+        source: '/articles/The%20Vision%20Always%20Came%20First',
+        destination: '/articles/the-vision-always-came-first/',
+        permanent: true,
+      },
+    ];
+  },
   webpack(config, { isServer }) {
     // Run custom scripts
     if (isServer) {

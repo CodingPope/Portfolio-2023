@@ -20,14 +20,14 @@ export const AppContext = createContext({});
 
 const repoPrompt = `
 (づ｡◕‿‿◕｡)づ
-\n\nTaking a peek huh? Check out the source code: https://github.com/codingPope/portfolio
+\n\nTaking a peek huh? Check out the source code: https://github.com/CodingPope/Portfolio-2023
 `;
 
 const App = ({ Component, pageProps }) => {
   const [storedTheme] = useLocalStorage('theme', 'dark');
   const [state, dispatch] = useReducer(reducer, initialState);
   const { route, events, asPath } = useRouter();
-  const canonicalRoute = route === '/' ? '' : `${asPath}`;
+  const canonicalRoute = asPath.split(/[?#]/)[0];
   useFoucFix();
 
   // Handle analytics pageview recording

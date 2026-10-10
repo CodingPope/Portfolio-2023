@@ -65,3 +65,4 @@ public/og
 .serverless
 .next
 .vercel
+.DS_Store

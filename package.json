@@ -1,14 +1,14 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "homepage": "https://Joew.com",
+  "homepage": "https://joepope.vercel.app",
   "description": "Portfolio site for Jokwon Pope",
-  "repository": "https://github.com/codingPope/portfolio.git",
+  "repository": "https://github.com/CodingPope/Portfolio-2023.git",
   "author": "Jokwon Pope <Jokwonpope1561@gmail.com>",
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.7.0",
     "@svgr/webpack": "^6.2.1",
-    "esbuild": "^0.14.38",
+    "esbuild": "^0.27.1",
     "eslint": "^8.15.0",
     "eslint-config-next": "^12.1.6",
     "fs-extra": "^10.1.0",
@@ -30,8 +30,8 @@
     "@emailjs/browser": "^3.11.0",
     "fathom-client": "^3.4.1",
     "framer-motion": "^6.3.3",
-    "mdx-bundler": "^9.0.0",
-    "next": "^12.1.6",
+    "mdx-bundler": "^10.1.1",
+    "next": "^16.4.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "three": "^0.140.0",
@@ -58,6 +58,6 @@
   },
   "engines": {
     "npm": ">=8.6.0",
-    "node": "22.x"
+    "node": "22.x || 24.x"
   }
 }

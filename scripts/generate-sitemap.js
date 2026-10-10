@@ -2,11 +2,10 @@ const fs = require('fs');
 const { bundleMDX } = require('mdx-bundler');
 
 function addPage(page) {
-  const path = page
+  const route = page
     .replace('src/pages', '')
-    .replace('.page.mdx', '')
-    .replace('/index', '/');
-  const route = path === '/index' ? '' : path;
+    .replace(/\.page\.(js|mdx)$/, '')
+    .replace(/\/index$/, '/');
 
   // Exclude 404 page and generated `[]` pages
   if (route.includes('[') || route.includes('404')) return;
@@ -23,7 +22,7 @@ async function addPost(post) {
 
   if (process.env.NODE_ENV === 'production' && frontmatter.draft) return;
 
-  const path = post.replace('src/posts', '/articles').replace('.mdx', '');
+  const path = `${post.replace('src/posts', '/articles').replace('.mdx', '')}/`;
 
   return `  <url>
     <loc>${`${process.env.NEXT_PUBLIC_WEBSITE_URL}${path}`}</loc>
@@ -34,7 +33,7 @@ async function addPost(post) {
 async function generateSitemap() {
   const { globby } = await import('globby');
   // Ignore Next.js specific files (e.g., _app.js) and API routes.
-  const pages = await globby(['!src/pages/_*.js', '!src/pages/api']);
+  const pages = await globby(['src/pages/**/*.page.{js,mdx}', '!src/pages/_*.js']);
   const postUrls = await globby(['src/posts/**/*.mdx']);
   const posts = await Promise.all(postUrls.map(addPost));
 

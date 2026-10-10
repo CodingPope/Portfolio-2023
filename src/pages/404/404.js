@@ -67,15 +67,9 @@ export function Page404() {
               >
                 <source src={notFoundVideo} type="video/mp4" />
               </video>
-              <a
-                className={styles.credit}
-                data-visible={visible}
-                href="https://gfycat.com/felineorderlyaxisdeer"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <span className={styles.credit} data-visible={visible}>
                 Animation from HxH
-              </a>
+              </span>
             </div>
           </Fragment>
         )}

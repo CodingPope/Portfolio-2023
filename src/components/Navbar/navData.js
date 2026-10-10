@@ -20,12 +20,12 @@ export const navLinks = [
 export const socialLinks = [
   {
     label: 'Resume',
-    url: 'https://docs.google.com/document/d/19Aae3_zmq93cM-GMKXelCPOmsla5dyUts7b0sWsEGDU/edit?usp=sharing',
+    url: 'https://docs.google.com/document/d/1OMj6oEuFbUCDovvEGTE1CB0mV_a1jXIoG-v51Gq5gpI/edit?usp=sharing',
     icon: 'resume',
   },
   {
     label: 'Figma',
-    url: 'https://www.figma.com/@joepope',
+    url: 'https://www.figma.com/design/KaSKxkYtLWSDJx29qunN0Y/UI-UX-Designs?node-id=444-12',
     icon: 'figma',
   },
   {

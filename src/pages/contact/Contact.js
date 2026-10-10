@@ -25,24 +25,31 @@ export const Contact = () => {
   const message = useFormInput('');
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
+  const [error, setError] = useState('');
   const initDelay = tokens.base.durationS;
 
   const sendEmail = e => {
     e.preventDefault();
+    setError('');
+
+    // Bots fill the hidden field; pretend it worked without sending anything
+    if (form.current.elements.website.value) {
+      setComplete(true);
+      return;
+    }
+
     setSending(true);
 
     emailjs
       .sendForm('service_o7575xh', 'template_mhwh75h', form.current)
       .then(
-        result => {
-          console.log('SUCCESS!', result);
+        () => {
           setComplete(true);
           setSending(false);
         },
 
-        error => {
-          console.error('FAILED...', error);
-          alert(`Failed to send message: ${error.text || error.message || 'Unknown error'}. Please check the console for details.`);
+        () => {
+          setError('Your message could not be sent. Please try again in a moment.');
           setSending(false);
         }
       );
@@ -108,6 +115,19 @@ export const Contact = () => {
               maxLength={4096}
               {...message}
             />
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: 'absolute', left: '-9999px', opacity: 0 }}
+            />
+            {error && (
+              <Text as="p" size="s" role="alert" data-status={status}>
+                {error}
+              </Text>
+            )}
 
             <Button
               className={styles.button}
